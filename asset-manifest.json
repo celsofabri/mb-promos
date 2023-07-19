@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "./static/css/main.4ddfd011.css",
+    "main.js": "./static/js/main.544104f9.js",
+    "static/js/787.f389c70e.chunk.js": "./static/js/787.f389c70e.chunk.js",
+    "static/media/cerveja-becks.png": "./static/media/cerveja-becks.3b1a577285b14bdd9014.png",
+    "index.html": "./index.html",
+    "main.4ddfd011.css.map": "./static/css/main.4ddfd011.css.map",
+    "main.544104f9.js.map": "./static/js/main.544104f9.js.map",
+    "787.f389c70e.chunk.js.map": "./static/js/787.f389c70e.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.4ddfd011.css",
+    "static/js/main.544104f9.js"
+  ]
+}
