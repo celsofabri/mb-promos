@@ -13,8 +13,8 @@ const App = () => {
     className: "center",
     centerMode: true,
     centerPadding: "60px",
-    // autoplay: true,
-    // autoplaySpeed: 1000,
+    autoplay: true,
+    autoplaySpeed: 5000,
     slidesToShow: 1,
     slidesToScroll: 1
   };
@@ -28,21 +28,27 @@ const App = () => {
       <Slider {...settings}>
         <div className="promo__item">
           <img src={ImgBecks} alt="Cerveja Becks" />
+          <p>Becks</p>
         </div>
         <div className="promo__item">
           <img src={ImgBecks} alt="Cerveja Becks" />
+          <p>Heineken</p>
         </div>
         <div className="promo__item">
           <img src={ImgBecks} alt="Cerveja Becks" />
+          <p>Budweiser</p>
         </div>
         <div className="promo__item">
           <img src={ImgBecks} alt="Cerveja Becks" />
+          <p>Skol</p>
         </div>
         <div className="promo__item">
           <img src={ImgBecks} alt="Cerveja Becks" />
+          <p>Original</p>
         </div>
         <div className="promo__item">
           <img src={ImgBecks} alt="Cerveja Becks" />
+          <p>Sol</p>
         </div>
       </Slider>
       </section>
