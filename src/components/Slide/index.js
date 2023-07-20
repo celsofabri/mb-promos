@@ -1,6 +1,13 @@
 import React from 'react';
 import Slider from "react-slick";
-import { StyledPromo, StyledPromoItem, StyledPromoDetail, StyledPromoTitle, StyledPromoPrice } from './styled'
+import {
+  StyledPromo,
+  StyledPromoItem,
+  StyledPromoDetail,
+  StyledPromoTitle,
+  StyledPromoPrice,
+  StyledPromoImg
+} from './styled'
 import ImgHeinekenLn from 'assets/img/img-heineken-ln.png'
 import ImgSolLn from 'assets/img/img-sol-ln.png'
 import ImgBudweiserLn from 'assets/img/img-budweiser-ln.png'
@@ -8,12 +15,10 @@ import ImgBudweiserLn from 'assets/img/img-budweiser-ln.png'
 const Slide = () => {
   const settings = {
     dots: false,
+    arrows: false,
     speed: 500,
-    className: "center",
     fade: true,
-    centerMode: true,
     infinite: true,
-    centerPadding: "0",
     autoplay: true,
     autoplaySpeed: 5000,
     slidesToShow: 1,
@@ -24,32 +29,38 @@ const Slide = () => {
     <StyledPromo>
       <Slider {...settings}>
         <StyledPromoItem>
-          <img src={ImgHeinekenLn} alt="Cerveja Heineken (Long Neck)" />
+          <StyledPromoImg>
+            <img src={ImgHeinekenLn} alt="Cerveja Heineken (Long Neck)" />
+          </StyledPromoImg>
           <StyledPromoDetail>
             <StyledPromoTitle>Cerveja Heineken (Long Neck)</StyledPromoTitle>
             <StyledPromoPrice>
-              <h4>R$ 8,00</h4>
-              <h3>R$ 7,00</h3>
+              <h4>De: <span>R$ 8,00</span></h4>
+              <h3>Por: R$ 7,00</h3>
             </StyledPromoPrice>
           </StyledPromoDetail>
         </StyledPromoItem>
         <StyledPromoItem>
-          <img src={ImgSolLn} alt="Cerveja Sol (Long Neck)" />
+          <StyledPromoImg>
+            <img src={ImgSolLn} alt="Cerveja Sol (Long Neck)" />
+          </StyledPromoImg>
           <StyledPromoDetail>
           <StyledPromoTitle>Cerveja Sol (Long Neck)</StyledPromoTitle>
           <StyledPromoPrice>
-              <h4>R$ 6,50</h4>
-              <h3>R$ 4,99</h3>
+              <h4>De: <span>R$ 6,50</span></h4>
+              <h3>Por: R$ 4,99</h3>
             </StyledPromoPrice>
           </StyledPromoDetail>
         </StyledPromoItem>
         <StyledPromoItem>
-          <img src={ImgBudweiserLn} alt="Cerveja Budweiser (Long Neck)" />
+          <StyledPromoImg>
+            <img src={ImgBudweiserLn} alt="Cerveja Budweiser (Long Neck)" />
+          </StyledPromoImg>
           <StyledPromoDetail>
           <StyledPromoTitle>Cerveja Budweiser (Long Neck)</StyledPromoTitle>
           <StyledPromoPrice>
-              <h4>R$ 7,50</h4>
-              <h3>R$ 6,50</h3>
+              <h4>De: <span>R$ 7,50</span></h4>
+              <h3>Por: R$ 6,50</h3>
             </StyledPromoPrice>
           </StyledPromoDetail>
         </StyledPromoItem>
