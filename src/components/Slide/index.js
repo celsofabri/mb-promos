@@ -11,7 +11,7 @@ import {
 
 const Slide = () => {
   const [promos, setPromos] = useState([])
-  
+  const promosActivated = promos.filter(promo => promo.activatePromo === true);
   const query = `
     {
       promotionsCollection{
@@ -61,14 +61,14 @@ const Slide = () => {
     }, 
   [query]);
 
-  if (!promos) {
+  if (promos.length === 0 || !promos) {
     return 'Carregando...'
   }
 
   return(
     <StyledPromo>
       <Slider {...settings}>
-        {promos.map((item, index) => {
+        {promosActivated.map((item, index) => {
           return (
             <StyledPromoItem key={index}>
               <StyledPromoImg>
