@@ -34,7 +34,7 @@ export const StyledPromoImg = styled.div`
   img {
     display: block;
     max-width: 75%;
-    height: auto;
+    max-height: 90%;
     margin: 0 auto;
   }
 `;
@@ -74,6 +74,10 @@ export const StyledPromoPrice = styled.div`
   h3 {
     margin-top: 8px;
     font-size: 48px;
+
+    span {
+      font-size: 24px;
+    }
   }
 
   h4 {
@@ -87,6 +91,10 @@ export const StyledPromoPrice = styled.div`
   @media screen and (max-width: 1260px) {
     h3 {
       font-size: 32px;
+
+      span {
+        font-size: 16px;
+      }
     }
 
     h4 {

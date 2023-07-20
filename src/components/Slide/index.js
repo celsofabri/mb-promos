@@ -77,8 +77,15 @@ const Slide = () => {
               <StyledPromoDetail>
                 <StyledPromoTitle>{item.title}</StyledPromoTitle>
                 <StyledPromoPrice>
-                  <h4>De: <span>R$ {item.originalPrice}</span></h4>
-                  <h3>Por: R$ {item.salePrice}</h3>
+                  {item.originalPrice && item.salePrice && 
+                    <React.Fragment>
+                      <h4>De: <span>R$ {item.originalPrice}</span></h4>
+                      <h3>Por: R$ {item.salePrice}</h3>
+                    </React.Fragment>
+                  }
+                  {item.originalPrice && !item.salePrice &&
+                    <h3><span>Apenas:</span> <br/>R$ {item.originalPrice}</h3>
+                  }
                 </StyledPromoPrice>
               </StyledPromoDetail>
             </StyledPromoItem>
