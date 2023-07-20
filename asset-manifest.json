@@ -1,19 +1,19 @@
 {
   "files": {
-    "main.css": "./static/css/main.796f2efa.css",
-    "main.js": "./static/js/main.f033b16f.js",
+    "main.css": "./static/css/main.029d2e7e.css",
+    "main.js": "./static/js/main.05b9c3b8.js",
     "static/js/787.f389c70e.chunk.js": "./static/js/787.f389c70e.chunk.js",
     "static/media/img-heineken-ln.png": "./static/media/img-heineken-ln.1b6734cd5f4a0997f2f3.png",
     "static/media/img-budweiser-ln.png": "./static/media/img-budweiser-ln.90510ecee2bdefcb8ca7.png",
     "static/media/img-sol-ln.png": "./static/media/img-sol-ln.ef84a482f9a1ff8e4f1b.png",
     "static/media/mb-logo.jpg": "./static/media/mb-logo.567eddb6ae450525d454.jpg",
     "index.html": "./index.html",
-    "main.796f2efa.css.map": "./static/css/main.796f2efa.css.map",
-    "main.f033b16f.js.map": "./static/js/main.f033b16f.js.map",
+    "main.029d2e7e.css.map": "./static/css/main.029d2e7e.css.map",
+    "main.05b9c3b8.js.map": "./static/js/main.05b9c3b8.js.map",
     "787.f389c70e.chunk.js.map": "./static/js/787.f389c70e.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.796f2efa.css",
-    "static/js/main.f033b16f.js"
+    "static/css/main.029d2e7e.css",
+    "static/js/main.05b9c3b8.js"
   ]
 }
