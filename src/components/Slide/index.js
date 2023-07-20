@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Slider from "react-slick";
 import {
   StyledPromo,
@@ -8,11 +8,26 @@ import {
   StyledPromoPrice,
   StyledPromoImg
 } from './styled'
-import ImgHeinekenLn from 'assets/img/img-heineken-ln.png'
-import ImgSolLn from 'assets/img/img-sol-ln.png'
-import ImgBudweiserLn from 'assets/img/img-budweiser-ln.png'
 
 const Slide = () => {
+  const [promos, setPromos] = useState([])
+  
+  const query = `
+    {
+      promotionsCollection{
+        items{
+          title
+          originalPrice
+          salePrice
+          productImg {
+            url
+          }
+          activatePromo
+        }
+      }
+    }
+  `;
+
   const settings = {
     dots: false,
     arrows: false,
@@ -25,45 +40,51 @@ const Slide = () => {
     slidesToScroll: 1
   };
 
+  useEffect(() => {
+    window
+      .fetch(`https://graphql.contentful.com/content/v1/spaces/g2c5zffvf18q/`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: 'Bearer _ntqOk6QB2UA_qND-qTxxaLsriX3YXHd6dOEWEFyArg',
+        },
+        body: JSON.stringify({ query }),
+      })
+      .then((response) => response.json())
+      .then(({ data, errors }) => {
+        if (errors) {
+          console.error(errors);
+        }
+
+        setPromos(data.promotionsCollection.items);
+      });
+    }, 
+  [query]);
+
+  if (!promos) {
+    return 'Carregando...'
+  }
+
   return(
     <StyledPromo>
       <Slider {...settings}>
-        <StyledPromoItem>
-          <StyledPromoImg>
-            <img src={ImgHeinekenLn} alt="Cerveja Heineken (Long Neck)" />
-          </StyledPromoImg>
-          <StyledPromoDetail>
-            <StyledPromoTitle>Cerveja Heineken (Long Neck)</StyledPromoTitle>
-            <StyledPromoPrice>
-              <h4>De: <span>R$ 8,00</span></h4>
-              <h3>Por: R$ 7,00</h3>
-            </StyledPromoPrice>
-          </StyledPromoDetail>
-        </StyledPromoItem>
-        <StyledPromoItem>
-          <StyledPromoImg>
-            <img src={ImgSolLn} alt="Cerveja Sol (Long Neck)" />
-          </StyledPromoImg>
-          <StyledPromoDetail>
-          <StyledPromoTitle>Cerveja Sol (Long Neck)</StyledPromoTitle>
-          <StyledPromoPrice>
-              <h4>De: <span>R$ 6,50</span></h4>
-              <h3>Por: R$ 4,99</h3>
-            </StyledPromoPrice>
-          </StyledPromoDetail>
-        </StyledPromoItem>
-        <StyledPromoItem>
-          <StyledPromoImg>
-            <img src={ImgBudweiserLn} alt="Cerveja Budweiser (Long Neck)" />
-          </StyledPromoImg>
-          <StyledPromoDetail>
-          <StyledPromoTitle>Cerveja Budweiser (Long Neck)</StyledPromoTitle>
-          <StyledPromoPrice>
-              <h4>De: <span>R$ 7,50</span></h4>
-              <h3>Por: R$ 6,50</h3>
-            </StyledPromoPrice>
-          </StyledPromoDetail>
-        </StyledPromoItem>
+        {promos.map((item, index) => {
+          return (
+            <StyledPromoItem key={index}>
+              <StyledPromoImg>
+                <img src={item.productImg.url} alt={item.title} />
+              </StyledPromoImg>
+              <StyledPromoDetail>
+                <StyledPromoTitle>{item.title}</StyledPromoTitle>
+                <StyledPromoPrice>
+                  <h4>De: <span>R$ {item.originalPrice}</span></h4>
+                  <h3>Por: R$ {item.salePrice}</h3>
+                </StyledPromoPrice>
+              </StyledPromoDetail>
+            </StyledPromoItem>
+          )
+        })}
+        
       </Slider>
     </StyledPromo>
   );
